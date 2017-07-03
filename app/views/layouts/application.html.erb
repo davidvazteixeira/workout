@@ -18,10 +18,15 @@
               <span class="icon-bar"></span>
             </button>
             <%= link_to "Athletes Den", root_path, class: "navbar-brand" %>
+            
           </div>
           <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="active"><%= link_to "Home", root_path %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                <% if user_signed_in? %>
+                  <li class="navbar-right"> <%= "Hi #{current_user.first_name} #{current_user.last_name} (#{current_user.email})" %></li>
+                  <% end %>
               <span class="sr-only">(current)</span>
               </li>
             </ul>
@@ -30,6 +35,9 @@
       </nav>
     </header>
     <div class='container'>
+      <% flash.each do |t, m| %>
+        <p><%= m %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>
