@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap3-rails'
 
+gem 'jquery-ui-rails'
+
 gem 'devise'
 
 group :development, :test do
