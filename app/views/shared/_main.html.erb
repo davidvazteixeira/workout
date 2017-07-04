@@ -1,0 +1,6 @@
+<div class='container'>
+  <% flash.each do |t, m| %>
+    <p><%= m %></p>
+  <% end %>
+  <%= yield %>
+</div>
