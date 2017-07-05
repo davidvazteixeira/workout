@@ -1,6 +1,9 @@
 <div class='container'>
   <% flash.each do |t, m| %>
-    <p><%= m %></p>
+    <div>
+      <p><%= m %></p>
+      <button class="close" data-dismiss="alert">Fechar</button>
+    </div>
   <% end %>
   <%= yield %>
 </div>
