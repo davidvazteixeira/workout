@@ -1,0 +1,29 @@
+<h2 class="text-center"><%= @friend.full_name %>'s Exercises</h2>
+<div class="col-md-8 col-xs-12">
+  <% unless @exercises.empty? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Dutaion</th>
+          <th>Workout Details</th>
+          <th>Activity date</th>
+          <th colspan="3">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @exercises.each do |exercise| %>
+            <td><%= exercise.duration_in_min %>
+            <td><%= truncate exercise.workout, length: 100 %>
+            <td><%= exercise.workout_date %>
+            <td><%= link_to "Show", [@friend, exercise]%>
+            <td><%= link_to "Edit", [:edit, @friend, exercise]%>
+            <td><%= link_to "Destroy", [@friend, exercise], method: :delete, data: {confirm: "Destroy?"}%>
+      </tr>
+    <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <%= link_to "New Workout", new_user_exercise_path(@friend), class: "btn btn-primary link" %>
+  <%= content_tag :div, "", id: "chart", data: {workouts: @exercises } %>
+</div>
