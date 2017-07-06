@@ -13,10 +13,13 @@ RSpec.feature "Search for User" do
         end
       end
 
+      login_as(User.where(email: "johnnash@mail.com").first)
+
+
       visit "/"
     end
 
-    scenario "with existinf name returnas all those users" do
+    scenario "with existing name returns all those users" do
       fill_in "search_name", with: "Stone"
       click_button "Search"
 
